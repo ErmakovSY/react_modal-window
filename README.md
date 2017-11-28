@@ -2,9 +2,10 @@
 
 Using styled-components and material-ui
 
-### Manual:
-1. npm i
-2. npm start
+### Install:
+```javascript
+npm install --save react-modal-alert
+```
 
 ### Usage:
 ```javascript
