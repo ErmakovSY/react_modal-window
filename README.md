@@ -3,7 +3,7 @@
 Using styled-components and material-ui
 
 ### Install:
-```javascript
+```
 npm install --save react-modal-alert
 ```
 
