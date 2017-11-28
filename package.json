@@ -1,6 +1,6 @@
 {
   "name": "react-modal-alert",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom modal window for success, notify, warning and error messages",
   "main": "src/index.js",
   "repository": {
