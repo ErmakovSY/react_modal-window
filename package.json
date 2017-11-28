@@ -1,8 +1,7 @@
 {
   "name": "react-modal-alert",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "Custom modal window for success, notify, warning and error messages",
-  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ErmakovSY/react_modal-window.git"
