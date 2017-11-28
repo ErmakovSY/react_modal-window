@@ -1,4 +1,4 @@
-# Simple ToDo Application with React.js
+# Modal Window with React.js
 
 Using styled-components and material-ui
 
