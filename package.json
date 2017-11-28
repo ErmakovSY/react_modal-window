@@ -1,7 +1,22 @@
 {
-  "name": "react-todo",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-modal-alert",
+  "version": "1.0.0",
+  "description": "Custom modal window for success, notify, warning and error messages",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErmakovSY/react_modal-window.git"
+  },
+  "keywords": [
+    "modal",
+    "alert"
+  ],
+  "author": "erm.sergey1989@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ErmakovSY/react_modal-window/issues"
+  },
+  "homepage": "https://github.com/ErmakovSY/react_modal-window#readme",
   "dependencies": {
     "eslint": "^4.10.0",
     "eslint-config-airbnb": "^15.0.1",

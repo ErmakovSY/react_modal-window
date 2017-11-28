@@ -78,15 +78,6 @@ export const Overlay = styled.div`
   background-color: rgba(0,0,0,.7);
 `;
 
-export const Icon = styled.p`
-  width: 20%;
-  line-height: 32px;
-  font-size: 32px;
-  color: ${CONTENT__ICON_COLOR};
-  text-align: center;
-  cursor: default;
-`;
-
 export const Title = styled.p`
   width: 100%;
   line-height: 24px;
@@ -100,6 +91,16 @@ export const Title = styled.p`
   text-overflow: ellipsis;
   cursor: auto;
   pointer-events: none;
+`;
+
+export const Icon = styled.p`
+  width: 20%;
+  line-height: 46px;
+  font-size: 46px;
+  color: ${CONTENT__ICON_COLOR};
+  text-align: center;
+  margin-right: 10px;
+  cursor: default;
 `;
 
 export const Text = styled.p`
@@ -151,7 +152,6 @@ export const Button = styled.button`
   border-radius: 6px;
   background-color: ${SUBMIT_BUTTON__BACKGROUND_COLOR};
   padding: 0;
-  margin-right: 3px;
   outline: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;

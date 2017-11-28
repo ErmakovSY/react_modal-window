@@ -17,12 +17,10 @@ export default class Modal extends React.Component {
     })
   }
 
-  componentWillReceiveProps = () => {
-    setTimeout(() => (
-      this.setState({
-        visible: this.props.visible
-      })
-    ), 1)
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({
+      visible: nextProps.visible
+    })
   }
 
   closeModal = () => {
@@ -62,30 +60,36 @@ export default class Modal extends React.Component {
   }
 
   render = () => {
-    const { title, text, type } = this.props;
+    const { title, text, type, overlayStyle, wrapperStyle, headerStyle, contentStyle, footerStyle, titleStyle, closeButtonStyle, submitButtonStyle, contentTextStyle } = this.props;
     const { visible } = this.state;
     const icon = this.getIcon(type);
     return (
-      <Overlay hidden={!visible}>
-        <Wrapper>
-          <Header>
-            <Title>
+      <Overlay 
+        hidden={!visible}
+        style={overlayStyle}
+      >
+        <Wrapper style={wrapperStyle}>
+          <Header style={headerStyle}>
+            <Title style={titleStyle}>
               {title}
             </Title>
-            <Close onClick={this.closeModal}>
+            <Close 
+              onClick={this.closeModal}
+              style={closeButtonStyle}
+            >
               <FontAwesome name="times" />
             </Close>
           </Header>
-          <Content>
+          <Content style={contentStyle}>
             <Icon iconColor={icon.color}>
               <FontAwesome name={icon.name} />
             </Icon>
-            <Text>
+            <Text style={contentTextStyle}>
               {text}
             </Text>
           </Content>
-          <Footer>
-            <Button>
+          <Footer style={footerStyle}>
+            <Button style={submitButtonStyle}>
               <span>OK</span>
             </Button>
           </Footer>
@@ -99,5 +103,14 @@ Modal.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['success', 'notify', 'warning', 'error']).isRequired,
-  visible: PropTypes.bool.isRequired
+  visible: PropTypes.bool.isRequired,
+  overlayStyle: PropTypes.object,
+  wrapperStyle: PropTypes.object,
+  headerStyle: PropTypes.object,
+  contentStyle: PropTypes.object,
+  footerStyle: PropTypes.object,
+  titleStyle: PropTypes.object,
+  closeButtonStyle: PropTypes.object,
+  submitButtonStyle: PropTypes.object,
+  contentTextStyle: PropTypes.object
 }
