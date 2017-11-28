@@ -9,7 +9,7 @@ npm install --save react-modal-alert
 
 ### Usage:
 ```javascript
-import Modal from './components/Modal';
+import Modal from 'react-modal-alert';
 
 ReactDOM.render((
   <Modal 
