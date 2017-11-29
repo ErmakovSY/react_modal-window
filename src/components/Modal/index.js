@@ -1,34 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+// import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import { Wrapper, Header, Content, Footer, Title, Text, Icon, Overlay, Close, Button } from './../styledComponents.js';
+import * as modalActions from './../../actions/modalActions.js';
 
-export default class Modal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false
-    }
-  }
+class Modal extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentWillMount = () => {
-    this.setState({
-      visible: this.props.visible
-    })
+    this.props.toggleMogal(this.props.show);
   }
 
-  componentWillReceiveProps = () => {
-    setTimeout(() => (
-      this.setState({
-        visible: this.props.visible
-      })
-    ), 1)
+  componentWillReceiveProps = (nextProps) => {
+    this.props.toggleMogal(nextProps.show);
   }
 
   closeModal = () => {
-    this.setState({
-      visible: false
-    })
+    console.log("click")
+    this.props.toggleMogal(false);
   }
 
   getIcon = (type) => {
@@ -62,11 +54,10 @@ export default class Modal extends React.Component {
   }
 
   render = () => {
-    const { title, text, type } = this.props;
-    const { visible } = this.state;
+    const { title, text, type, show } = this.props;
     const icon = this.getIcon(type);
     return (
-      <Overlay hidden={!visible}>
+      <Overlay hidden={!show}>
         <Wrapper>
           <Header>
             <Title>
@@ -95,9 +86,28 @@ export default class Modal extends React.Component {
   }
 }
 
-Modal.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['success', 'notify', 'warning', 'error']).isRequired,
-  visible: PropTypes.bool.isRequired
-}
+// Modal.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   text: PropTypes.string.isRequired,
+//   type: PropTypes.oneOf(['success', 'notify', 'warning', 'error']).isRequired,
+//   visible: PropTypes.bool.isRequired
+// }
+
+// Maps state from store to props
+const mapStateToProps = (state, ownProps) => {
+  return {
+    // You can now say this.props.show
+    show: state.modal.show
+  }
+};
+
+// Maps actions to props
+const mapDispatchToProps = (dispatch) => {
+  return {
+  // You can now say this.props.toggleMogal
+    toggleMogal: show => dispatch(modalActions.toggleMogal(show))
+  }
+};
+
+// Use connect to put them together
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
